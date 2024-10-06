@@ -8,4 +8,6 @@
 
 {#if count > 10}
     <p>{count} is greater than 10.</p>
+{:else}
+    <p>{count} is not greater than 10.</p>
 {/if}
