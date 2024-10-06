@@ -1,15 +1,29 @@
-<script lang='ts'>
-    let count = 0;
-    const increment = () => count++;
+<script>
+	const colors = ['red', 'orange', 'yellow', 'green', 'blue', 'indigo', 'violet'];
+	let selected = colors[0];
 </script>
-<button on:click={increment}>
-    Clicked {count}
-</button>
 
-{#if count > 10}
-    <p>{count} is greater than 10.</p>
-{:else if count < 5}
-    <p>{count} is less than 5.</p>
-{:else}
-    <p>{count} is between 5 and 10.</p>
-{/if}
+<h1 style="color: {selected}">Hello world!</h1>
+
+<div>
+	{#each colors as color}
+		<button on:click={() => (selected = color)} style="background: {color}" />
+	{/each}
+</div>
+<style>
+    div {
+        display: flex;
+        width: 100%;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+    }
+    button {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        border: 0;
+        margin: 10px;
+        cursor: pointer;
+    }
+
+</style>
